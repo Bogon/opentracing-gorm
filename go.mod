@@ -1,4 +1,4 @@
-module github.com/lhypj/opentracing-gorm
+module github.com/Bogon/opentracing-gorm
 
 go 1.14
 

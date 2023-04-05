@@ -2,6 +2,7 @@ package otgorm_test
 
 import (
 	"context"
+	"github.com/opentracing/opentracing-go"
 	"log"
 	"testing"
 
@@ -39,7 +40,7 @@ func Handler(ctx context.Context) {
 	span, ctx := opentracing.StartSpanFromContext(ctx, "handler")
 	defer span.Finish()
 
-	db = otgorm.SetSpanToGorm(ctx, db)
+	db = otgorm.WithContext(ctx, db)
 
 	var product Product
 	db.WithContext(ctx).Where("id = 1").First(&product)

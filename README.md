@@ -5,7 +5,7 @@
 ## Install
 
 ```
-go get -u github.com/lhypj/opentracing-gorm
+go get -u github.com/Bogon/opentracing-gorm
 ```
 
 ## Usage
@@ -33,7 +33,7 @@ func initDB() *gorm.DB {
 }
 
 func Handler(ctx context.Context) {
-    span, ctx := opentracing.StartSpanFromContext(ctx, "handler")
+    span, ctx := opentracing.WithContext(ctx, "handler")
     defer span.Finish()
 
     // clone db with proper context

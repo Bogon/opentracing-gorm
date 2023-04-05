@@ -14,8 +14,8 @@ const (
 	spanGormKey       = "opentracingSpan"
 )
 
-// SetSpanToGorm sets span to gorm settings, returns cloned DB
-func SetSpanToGorm(ctx context.Context, db *gorm.DB) *gorm.DB {
+// WithContext sets span to gorm settings, returns cloned DB
+func WithContext(ctx context.Context, db *gorm.DB) *gorm.DB {
 	if ctx == nil {
 		return db
 	}

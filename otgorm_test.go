@@ -5,8 +5,7 @@ import (
 	"log"
 	"testing"
 
-	otgorm "github.com/lhypj/opentracing-gorm"
-	"github.com/opentracing/opentracing-go"
+	otgorm "github.com/Bogon/opentracing-gorm"
 	"github.com/opentracing/opentracing-go/mocktracer"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -36,7 +35,6 @@ func Handler(ctx context.Context) {
 	db := GetInstance()
 	tracer = mocktracer.New()
 	opentracing.SetGlobalTracer(tracer)
-
 
 	span, ctx := opentracing.StartSpanFromContext(ctx, "handler")
 	defer span.Finish()
